@@ -22,18 +22,20 @@ In my years of work I have also accumulated experience in the deployment of appl
 
 #### Skills:
 
-- PYTHON
-- DJANGO
-- FASTAPI
-- DRF
-- GRAPHENE
-- STRAWBERRY
-- POSTGRESQL
-- AWS
-- CELERY
-- REDIS
-- MICROSERVICES
-- DOCKER
+- PYTHON.
+- DJANGO.
+- FASTAPI.
+- DRF.
+- GRAPHENE.
+- STRAWBERRY.
+- POSTGRESQL.
+- AWS.
+- CELERY.
+- REDIS.
+- MICROSERVICES.
+- DOCKER.
+
+#### Others
 
 - 🔭 I’m currently working on www.crehana.com 
 - 🌱 I’m currently learning GraphQL Apollo Federation - GCP - Go 
