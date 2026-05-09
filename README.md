@@ -1,45 +1,66 @@
-## Hi there 👋, my name is Argenis Vargas
+# Argenis Vargas — Principal Engineer
 
-![pYTHON](https://user-images.githubusercontent.com/33646049/199755303-5b520780-7da8-4a93-83d0-1136d302ccc1.png)
+Backend engineer specializing in distributed systems, event-driven architecture and GraphQL federation. I design and build infrastructure that handles real production load — not just on paper.
 
-### I am Senior Python Dev
+Currently leading technical strategy and architecture for a high-traffic B2B platform serving organizations of 20,000+ users.
 
-I define myself as a professional passionate about what I do, a researcher, a builder of scalable, robust, secure and high performance technological solutions that always seek to make an impact, following the standards that ensure quality and innovation.
+---
 
-The experience accumulated throughout my professional development has led me at different times to have to assume leadership positions, making clear my proactive and decisive character as well as to demonstrate my ability to plan and organize. 
+## What I actually do
 
-I have had the opportunity to assume tasks in the definition and programming of software, specific designs, prototypes, applications in different environments, decision making in terms of technologies and architectures, I have also been in charge of development environments and their maintenance. 
+- Design **event-driven pipelines** using GCP Pub/Sub and AWS SNS→SQS fan-out patterns
+- Build **GraphQL federation** layers with Strawberry + Apollo Federation
+- Optimize **Django ORM** at scale — eliminating N+1 patterns, replacing model instances with lightweight entities, using server-side cursors for high-volume queries
+- Design **state machines** for distributed async processes with idempotency guarantees
+- Apply **Flyweight and Copy-on-Write** patterns for multi-tenant data architecture
+- Build **streaming Excel reports** for datasets of 80K+ rows without OOM — `write_only=True`, `iterator()`, sequential memory phases with explicit release
+- Refactor **O(N×6) query loops** into O(1) bulk operations
+- Design **composite indexes** aligned to actual query patterns
+- Mentor engineers from Mid to Senior level
 
-As for knowledge in the area I can mention that I have extensive experience in the following programming languages: Python, Javascript, PHP, C++.
+---
 
-I am specialized in the backend frameworks Django, Django Rest Framework, Flask, FastAPI, Liberias like Graphene (GraphQL), Strawberry (Graphql). 
+## Core stack
 
-I have done frontend work with framework's like VueJS and libraries like Jquery and ReactJs.
+```python
+languages  = ["Python 3.12"]
+frameworks = ["Django", "FastAPI", "Strawberry GraphQL"]
+databases  = ["PostgreSQL", "Redis"]
+cloud      = ["AWS (S3, SQS, SNS)", "GCP (Pub/Sub, Scheduler)"]
+patterns   = ["Event-driven", "Distributed systems", "GraphQL Federation",
+              "SOLID", "Flyweight", "State Machine", "Bulk operations"]
+testing    = ["pytest", "TDD", "Integration testing"]
+tools      = ["Docker", "Celery", "openpyxl", "asyncio", "sync_to_async"]
+```
 
-Besides having knowledge in micro-services architectures, RESTful models, repository management, code versioning, asynchronous task management with Celery - (RabbitMQ - Redis), relational database management like PostgreSQL, MySQL, SQLite and non-relational like Redis, api security with JSON Web Token (JWT).
+---
 
-In my years of work I have also accumulated experience in the deployment of applications on NGINX and Apache2 servers, use of Docker as an application container, management of libraries for data processing as Numpy, Pandas, BeatifulSoup. among the most important, documentation of applications with Swagger and unit and integration tests with Unitest and PyTests, management of reports in formats such as .csv, .xlsx and .pdf.
+## Engineering principles I live by
 
-#### Skills:
+**1. El loop es una señal de alarma.**
+Si hay un `for` con queries adentro, hay un problema de escala esperando para explotar.
 
-- PYTHON.
-- DJANGO.
-- FASTAPI.
-- DRF.
-- GRAPHENE.
-- STRAWBERRY.
-- POSTGRESQL.
-- AWS.
-- CELERY.
-- REDIS.
-- MICROSERVICES.
-- DOCKER.
+**2. Pensar en conjuntos, no en individuos.**
+La diferencia entre O(N) y O(1) casi siempre está en reformular la pregunta, no en optimizar el código.
 
-#### Others
+**3. Los bugs de lógica son más peligrosos que los bugs de performance.**
+Un proceso lento molesta. Un proceso que corrompe datos silenciosamente destruye confianza.
 
-- 🔭 I’m currently working on www.crehana.com 
-- 🌱 I’m currently learning GraphQL Apollo Federation - GCP - Go 
+**4. El event loop no perdona el ORM síncrono.**
+`sync_to_async` no es opcional cuando mezclas Django con async. Es arquitectura.
 
+**5. Liberar memoria explícitamente en procesos de larga duración no es micro-optimización.**
+En un pod con límite de RAM, el GC no es suficientemente predecible.
 
+---
 
+## Currently exploring
 
+- Go — for latency-critical services
+- Advanced observability — distributed tracing, structured logging at scale
+- Platform engineering patterns
+
+## Let's connect
+
+- 💼 [LinkedIn](https://www.linkedin.com/in/argenis-vargas-13112b152)
+- 📍 Colombia · Remote-first
