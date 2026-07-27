@@ -1,64 +1,54 @@
-# Argenis Vargas — Principal Engineer
+# Argenis Vargas — Principal Engineer | Integration & Distributed Systems Architect
 
-Backend engineer specializing in distributed systems, event-driven architecture and GraphQL federation. I design and build infrastructure that handles real production load — not just on paper.
+Backend Engineer and Systems Architect with 9+ years of experience specializing in high-throughput distributed systems, event-driven architectures, GraphQL federation, and cloud integrations (GCP & AWS).
 
-Currently leading technical strategy and architecture for a high-traffic B2B platform serving organizations of 20,000+ users.
+Formerly Principal Software Engineer & Tech Architecture, designing and scaling multi-tenant B2B systems for 20,000+ users.
 
 ---
 
 ## What I actually do
 
-- Design **event-driven pipelines** using GCP Pub/Sub and AWS SNS→SQS fan-out patterns
-- Build **GraphQL federation** layers with Strawberry + Apollo Federation
-- Optimize **Django ORM** at scale — eliminating N+1 patterns, replacing model instances with lightweight entities, using server-side cursors for high-volume queries
-- Design **state machines** for distributed async processes with idempotency guarantees
-- Apply **Flyweight and Copy-on-Write** patterns for multi-tenant data architecture
-- Build **streaming Excel reports** for datasets of 80K+ rows without OOM — `write_only=True`, `iterator()`, sequential memory phases with explicit release
-- Refactor **O(N×6) query loops** into O(1) bulk operations
-- Design **composite indexes** aligned to actual query patterns
-- Mentor engineers from Mid to Senior level
-
----
-
-## Core stack
-
-```python
-languages  = ["Python 3.12"]
-frameworks = ["Django", "FastAPI", "Strawberry GraphQL"]
-databases  = ["PostgreSQL", "Redis"]
-cloud      = ["AWS (S3, SQS, SNS)", "GCP (Pub/Sub, Scheduler)"]
-patterns   = ["Event-driven", "Distributed systems", "GraphQL Federation",
-              "SOLID", "Flyweight", "State Machine", "Bulk operations"]
-testing    = ["pytest", "TDD", "Integration testing"]
-tools      = ["Docker", "Celery", "openpyxl", "asyncio", "sync_to_async"]
-```
+- Design **event-driven pipelines** using GCP Pub/Sub and AWS SNS→SQS fan-out patterns for async batch execution.
+- Build and unify domain APIs with **Strawberry + Apollo Federation**, resolving N+1 bottlenecks and decoupling core systems.
+- Optimize **PostgreSQL & Django ORM at scale** — refactoring bulk transactional workflows (e.g., from 120K individual queries down to 8 bulk operations).
+- Design **resilient async pipelines** that cut processing times from **3.6 hours to 26 minutes** with strict idempotency guarantees.
+- Build **streaming Excel and CSV exports** for datasets of 80K+ rows without OOM — using server-side cursors, sequential memory phases, and explicit release.
+- Implement **resiliency patterns** (Circuit Breaker, Exponential Backoff, Connection Pooling) for cross-system fault tolerance.
+- Drive **observability and monitoring** across distributed interfaces using Prometheus, structured logging, and distributed tracing.
 
 ---
 
 ## Engineering principles I live by
 
-**1. El loop es una señal de alarma.**
-Si hay un `for` con queries adentro, hay un problema de escala esperando para explotar.
+1. **A loop with DB queries is an incident in waiting.**
+   If there is a `for` loop issuing queries inside, it’s a scale bottleneck ready to explode. Refactor to bulk set operations early.
 
-**2. Pensar en conjuntos, no en individuos.**
-La diferencia entre O(N) y O(1) casi siempre está en reformular la pregunta, no en optimizar el código.
+2. **Think in sets, not in items.**
+   The difference between $O(N)$ and $O(1)$ usually lies in reformulating the problem statement, not micro-optimizing the loop body.
 
-**3. Los bugs de lógica son más peligrosos que los bugs de performance.**
-Un proceso lento molesta. Un proceso que corrompe datos silenciosamente destruye confianza.
+3. **Logic bugs are far more dangerous than performance bugs.**
+   A slow query annoys users; a process that silently corrupts transactional data destroys business trust.
 
-**4. El event loop no perdona el ORM síncrono.**
-`sync_to_async` no es opcional cuando mezclas Django con async. Es arquitectura.
+4. **The event loop does not forgive synchronous ORM blocking.**
+   Proper async boundary management (`sync_to_async`) isn't an afterthought when mixing Django with async processing — it's core architecture.
 
-**5. Liberar memoria explícitamente en procesos de larga duración no es micro-optimización.**
-En un pod con límite de RAM, el GC no es suficientemente predecible.
+5. **Explicit memory management in long-running pods isn't micro-optimization.**
+   When operating near RAM thresholds in containerized environments, relying solely on garbage collection lead to unpredictable OOM crashes.
 
 ---
 
-## Currently exploring
+## Core Stack & Tooling
 
-- Go — for latency-critical services
-- Advanced observability — distributed tracing, structured logging at scale
-- Platform engineering patterns
+```python
+languages   = ["Python 3.12", "Go (Exploring)"]
+frameworks  = ["Django", "FastAPI", "Strawberry GraphQL"]
+databases   = ["PostgreSQL", "Redis"]
+cloud_infra = ["GCP (Pub/Sub, Cloud Run, GKE)", "AWS (S3, SQS, SNS)", "Terraform", "Kubernetes"]
+patterns    = ["Distributed Systems", "Event-Driven Architecture", "GraphQL Federation",
+               "Domain-Driven Design (DDD)", "Idempotency & Resiliency", "Bulk Operations"]
+observability = ["Prometheus", "Distributed Tracing", "Structured Logging"]
+tools       = ["Docker", "Celery", "openpyxl", "asyncio", "sync_to_async", "Claude Code / Multi-Agent Workflows"]
+```
 
 ## Let's connect
 
